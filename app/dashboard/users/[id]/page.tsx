@@ -1,6 +1,10 @@
-const UserPage = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
-  console.log(id);
+interface UserPageProps {
+  params: Promise<{ id: string }>;
+}
+
+const UserPage = async ({ params }: UserPageProps) => {
+  const { id } = await params;
+
   return (
     <section>
       <h1 className=" text-3xl">User Page {id}</h1>
